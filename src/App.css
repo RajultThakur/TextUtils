@@ -1,0 +1,56 @@
+#floatingTextarea2{
+    height: 200px;
+    font-size: 20px;
+}
+.navbar-brand{
+    color: blue;
+    font-weight: bolder;
+}
+button{
+    margin-right:10px;
+
+}
+/* pre{
+    color: #0d6efd;
+    font-size: 37px;
+    display: inline;
+} */
+.mycontainer{
+    margin-block: 20px;
+      margin-bottom: 0px;
+      justify-content: space-between;
+    display: flex;
+}
+.heading{
+    display: inline;
+}
+.wordcounter{
+    text-align: end;
+}
+.preview{
+    width: auto;
+}
+
+.navbar-dark{
+    position: sticky;
+    top: 0px;
+    margin-bottom: -30px;
+}
+#flexSwitchCheckDefault {
+    float: right;
+    right: 80px;
+    font-size: 20px;
+    position: fixed;
+    top: 12px;
+}
+
+.maincontainer{
+    position: relative;
+    bottom: 40px;
+}    
+p{
+    margin-bottom: 4px;
+}
+.btn{
+    margin-block: 5px;
+}
