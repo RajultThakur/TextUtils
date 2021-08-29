@@ -25,6 +25,7 @@ function TextArea (props) {
         let copyText = document.getElementById("floatingTextarea2");
         copyText.select();
         navigator.clipboard.writeText(copyText.value);
+        document.getSelection().removeAllRanges();
         setCopy("Copyed")
         setTimeout(() => {
             setCopy("Copy");
@@ -58,19 +59,19 @@ function TextArea (props) {
             </div>
 
             <div className="container">
-                <button className="btn btn-primary px-10 ma-10" onClick={toUpperCase}>Convert to Uppercase</button>
-                <button className="btn btn-primary px-10" onClick={lowerCase}>to Lowercase</button>
-                <button className="btn btn-primary px-10" onClick={copyHandel}>{copy}</button>
-                <button className="btn btn-primary px-10" onClick={spaceremover}>remove Extra space</button>
-                <button className="btn btn-danger px-10" onClick={clear}>{clearBtn}</button>
+                <button disabled={text.length===0} className="btn btn-primary px-10 ma-10" onClick={toUpperCase}>Convert to Uppercase</button>
+                <button disabled={text.length===0} className="btn btn-primary px-10" onClick={lowerCase}>to Lowercase</button>
+                <button disabled={text.length===0} className="btn btn-primary px-10" onClick={copyHandel}>{copy}</button>
+                <button disabled={text.length===0} className="btn btn-primary px-10" onClick={spaceremover}>remove Extra space</button>
+                <button disabled={text.length===0} className="btn btn-danger px-10" onClick={clear}>{clearBtn}</button>
             </div>
 
             <div className="container my-2" style={props.state ? dark : light}>
                 <h2>Your summary</h2>
                 <div style={props.state ? dark : light}>
-                <p>Charector Count : {text.trim().length} Total Word Count : {text.length>0 ? text.trim().split(" ").length : 0}</p>
+                <p>Charector Count : {text.trim().length} Total Word Count : {text.split(" ").filter(ele => {return ele.length!==0}).length}</p>
                     <p>Avrege word Length : {(text.length / text.trim().split(" ").length).toFixed(1)}</p>
-                    <p>Time taken to read: {(0.008 * text.split(" ").length).toFixed(2)} Minutes</p>
+                    <p>Time taken to read: {(0.008 * text.split(" ").filter(ele => {return ele.length!==0}).length).toFixed(2)} Minutes</p>
                     {text !== "" ? <h3>Preview</h3> : ""}
                     <div className="container" style={props.state ? dark : light}>
                         <p style={props.state ? dark : light} className="preview">{text}</p>
@@ -80,5 +81,5 @@ function TextArea (props) {
         </div>
     )
 }
-
+// (0.008 * text.split(" ").filter(ele => {return ele.length!==0}).length).toFixed(2)
 export default TextArea

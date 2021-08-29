@@ -6,8 +6,10 @@ function firstUpperCase(word){
 
 function Alert (props) {
     return (
-        props.alerts && <div className={`alert alert-${props.alerts.type}`} role="alert">
+        <div style={{height:"30px"}}>
+      {  props.alerts && <div className={`alert alert-${props.alerts.type}`} role="alert">
   <strong>{firstUpperCase(props.alerts.type)}! {props.alerts.message}</strong>
+</div>}
 </div>
     )
 }
